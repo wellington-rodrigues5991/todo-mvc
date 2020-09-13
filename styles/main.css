@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,body{@apply w-screen h-screen}
+body{@apply font-general leading-6 bg-gray-100 text-gray-400 antialiased font-light text-2xl}
+
+input::-webkit-input-placeholder { @apply italic}
+input:-ms-input-placeholder { @apply italic}
+input::placeholder { @apply italic }
+
