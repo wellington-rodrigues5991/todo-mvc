@@ -8,16 +8,15 @@ import Filter from '../src/components/Filter/Filter';
 import Todos from '../src/components/Todos/Todos';
 import Footer from '../src/components/__General/Footer';
 import __Header from '../src/components/__General/__Header';
+import { TodosMachine } from '../xstate/TodosMachine';
+import { useMachine } from '@xstate/react';
 
 export default function Home() {
   const router = useRouter();  
-  const [todos, setTodos] = useState([
-    {text: "sjskdfjsklfjssfld", completed: false}, 
-    {text: "klfldsjsfkljs", completed: true}, 
-    {text: "dlkiuouwadklklajkds", completed: false}, 
-    {text: "kslfjsdklfjsdklsfjsklfdskldjf sadklfjs jsdklfsdkl", completed: false}
-  ]);
+  const [state, send] = useMachine(TodosMachine);
 
+  console.log(state.context.todos);
+  
   return (
     <div className="pt-15r">
       <Head>
@@ -27,7 +26,7 @@ export default function Home() {
 
       <main className="shadow-double bg-white  mx-auto mt-32 relative max-w-550">
         <__Header />
-        <Todos path={router.asPath} todos={todos} />
+        <Todos path={router.asPath} todos={state.context.todos} />
         <Filter path={router}/>
       </main>
 
