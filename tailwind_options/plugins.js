@@ -12,6 +12,7 @@ module.exports = {
     overflow:  ({ after }) => after(['before']),
     inset:  ({ after }) => after(['before']),
     opacity:  ({ after }) => after(['group-hover']),
+    display:  ({ after }) => after(['group-hover']),
     outline:  ({ after }) => after(['focus']),
     maxWidth:  ({ after }) => after(['responsive'])
   },

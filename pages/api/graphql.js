@@ -5,7 +5,7 @@ mongoose.connect('mongodb+srv://test:minhasenhaforte@todomvc.gsrw3.mongodb.net/t
   useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false
 })
 
-const data = require('../../src/Mongo/Todo');
+const data = mongoose.models.TodoItem || require('../../src/Mongo/Todo');
 
 const typeDefs = gql`
   type Todo{
@@ -22,8 +22,9 @@ const typeDefs = gql`
   type Mutation{
     createTodo(text: String!): Todo
     changeTodo(text: String!, id: ID!, completed: Boolean!): Todo
-    clearCompleted: Boolean
+    clearCompleted: Int
     deleteTodo(id: ID!): Int
+    changeCompletedAll(completed: Boolean!): Int
   }
 `
 
@@ -36,7 +37,8 @@ const resolvers = {
     createTodo: (_, {text}) => data.create({text, completed: false}),
     changeTodo: (_, {text, id, completed}) => data.findOneAndUpdate({_id:id}, {text, completed}, {new:true}),
     clearCompleted: () => data.deleteMany({completed: true}).then(result => result.n),
-    deleteTodo: (_, {id}) => data.deleteOne({_id: id}).then(result => result.n)
+    deleteTodo: (_, {id}) => data.deleteOne({_id: id}).then(result => result.n),
+    changeCompletedAll: (_, {completed}) => data.update({completed: !completed}, {"$set": {completed: completed}}, {multi: true}).then(result => result.n)
   }
 }
 
