@@ -2,9 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-*{@apply  transition-colors duration-300}
-html,body{@apply w-screen h-screen }
-body{@apply font-general leading-6 bg-gray-100 text-gray-400 antialiased font-light text-2xl}
+html,body{@apply w-screen h-screen overflow-x-hidden}
+body{@apply font-general leading-6 bg-gray-100 text-gray-400 antialiased font-light text-2xl overflow-visible}
+
+.aside{ @apply text-black leading-tight}
+.aside h3{@apply leading-tight text-24 font-medium my-10}
+.aside h5{@apply leading-tight text-14 mb-0}
+.aside h4{@apply leading-tight text-lg mb-10}
+.aside a{@apply mt-px inline-block text-red-400}
+.aside a:hover{@apply text-gray-780 underline}
+.aside a:focus{@apply outline-none}
+.aside hr{@apply border-dashed border-t border-gray-500 mb-20 mt-22}
+.aside .chat{@apply relative}
+.aside .chat::after{content: ''; position: absolute; top: 100%; right: 30px; border: 13px solid transparent; border-top-color: rgba(0, 0, 0, .04);}
+.aside .chat p{@apply relative}
+.aside .chat p::before{content: '“'; font-size: 50px; opacity: .15; position: absolute; top: -20px; left: 3px;}
+.aside .chat p::after{content: '”'; font-size: 50px; opacity: .15; position: absolute; bottom: -42px; right: 3px;}
+.aside ul{@apply list-disc pl-25}
+.aside li{@apply leading-20}
+.remove-margin{margin-top: 0px !important;}
 
 input::-webkit-input-placeholder { @apply italic}
 input:-ms-input-placeholder { @apply italic}

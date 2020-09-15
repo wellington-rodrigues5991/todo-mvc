@@ -10,6 +10,7 @@ import Footer from '../src/components/__General/Footer';
 import __Header from '../src/components/__General/__Header';
 import { useMachine } from '@xstate/react';
 import { TodosMachine } from '../src/xstate/TodosMachine';
+import Learn from '../src/components/__General/Learn';
 
 export default function Home() {
   const router = useRouter();  
@@ -21,16 +22,12 @@ export default function Home() {
     return {todo: n.length, completed: todos.length-n.length};
   };  
   const count = completed();
-  
-  return (
-    <div className="pt-15r">
-      <Head>
-        <title>React • TodoMVC</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
 
+  return (
+    <div className="pt-15r fixed w-full h-full top-px left-px overflow-y-auto md:pl-300">
+      <Learn />
       <main className="shadow-double bg-white  mx-auto mt-32 relative max-w-550">
-        <__Header send={send} />
+        <__Header send={send} count={state.context.todos.length} />
         <Todos path={router.asPath} todos={state.context.todos} completed={count.todo} send={send} />
         {state.context.todos.length > 0 && <Filter path={router} todos={count} send={send}/>}
       </main>

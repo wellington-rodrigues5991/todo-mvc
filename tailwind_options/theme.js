@@ -1,11 +1,19 @@
 module.exports = {
+    screens: {'sm': '640px', 'md': '899px', 'lg': '1024px', 'xl': '1280px'},
     inset: {
         '0': '0px',
         '-1': '-1px',
         '10': '10px',
         '-110': '-113px',
         '-65': '-65px',
-        '40': '40px'
+        '40': '40px',
+        '-300': '-300px',
+        '8': '8px',
+        '20': '21px',
+        '5': '4px'
+    },
+    backgroundPosition: {
+        'pos': '-0.5px center'
     },
     extend: {
         backgroundImage:{
@@ -25,34 +33,47 @@ module.exports = {
                 '150': 'rgba(175, 47, 47, 0.15)',
                 '200': '#cc9a9a',
                 '300': '#af5b5e',
+                '400': '#b83f45'
             },
             gray: {
+                '50': 'rgba(255, 255, 255, .6)',
                 '100': '#f5f5f5',
                 '200': '#e6e6e6',
                 '250': '#ededed',
                 '300': 'rgba(0, 0, 0, 0.003)',
+                '310': 'rgba(0, 0, 0, .04)',
                 '350': '#bfbfbf',
                 '400': '#4d4d4d',
                 '450': '#d9d9d9',
-                '700': '#777'
+                '500': '#c5c5c5',
+                '700': '#777',
+                '780': '#787e7e'
             }
         },
         fontFamily: {'general': ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif']},
-        fontSize:{'100' : '100px', '10' : '10px', '1xl': '1.375rem'},
-        lineHeight: {'big' : '3'},
+        fontSize:{'100' : '100px', '10' : '10px', '14': '14px', '15': '15px', '24': '24px', '1xl': '1.375rem'},
+        lineHeight: {'big' : '3', '6': '1.35em', '7': '1.40em', '20': '19px', 'tight': '1.2', 'tight2': '1.3'},
         maxWidth: {'550' : '550px', '3/5' : '80%'},
         spacing: {
             '65': '65px',
-            '1015': '7.1px 15px 8.9px',
+            '1015': '3px 15px 5px',
             '15r': '.15rem',
-            '15': '17px',
-            '16': '18.5px',
+            '15': '15px',
+            '16': '16.5px 16px 16px 16px',
             '43px': '43px',
             '60': '60px',
             '12px': '12px',
             '34': '34px',
+            '4px': '4px',
             '3px7px': '2px 7px 4px',
-            '3px': '3.5px 0px  0px 3px'
+            '3px': '3.5px 0px  0px 3px',
+            '300': '300px',
+            '272': '292px',
+            '10': '10px',
+            '22': '22px',
+            '20': '21px',
+            '25': '25px',
+            '30': '30px'
         }
     }
 }
