@@ -10,7 +10,6 @@ export default function Todos({todos, path, completed, send}) {
 
   const filter = todo => {
     const response = path == '/active' ? false : true;
-    
     if(path == '/' || todo.completed == response) 
       return todo;
   }
@@ -18,7 +17,6 @@ export default function Todos({todos, path, completed, send}) {
   const save = (id, send) => {
     const elem = document.getElementById(id);
     const data = {id: elem.id, text: elem.innerText, completed: elem.parentElement.querySelector('input').checked}
-
     edit.send("TODO.EDIT", data);
   }
 
@@ -30,7 +28,7 @@ export default function Todos({todos, path, completed, send}) {
             <label htmlFor="select" className={"transform rotate-90 p-3px items-center text-gray-"+ (completed == 0 ? "400" : "200") +" text-1xl "} >❯</label>
           </>}
         </div>
-        <ul className="todo border-t border-gray-250">
+        <ul className="text-gray-400 text-gray-200 todo border-t border-gray-250">
           {todos.filter(todo => filter(todo)).map(
               todo => <Todo onEdit={edit} data={todo} key={todo.id}/>
           )}

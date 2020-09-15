@@ -4,7 +4,7 @@ export default function Learn({send}){
             <h3>React</h3>
 
             <h5>Example</h5>
-            <a href="https://github.com/tastejs/todomvc/tree/gh-pages/examples/react">Source</a>
+            <a href="https://github.com/wellington-rodrigues5991/todo-mvc">Source</a>
             <h5 className="pt-12px">React + Backbone.js</h5>
             <a href="http://todomvc.com/examples/react-backbone">Demo</a>, 
             <a className="pl-4px" href="https://github.com/tastejs/todomvc/tree/gh-pages/examples/react-backbone">Source</a>

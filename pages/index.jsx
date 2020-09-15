@@ -24,7 +24,7 @@ export default function Home() {
   const count = completed();
 
   return (
-    <div className="pt-15r fixed w-full h-full top-px left-px overflow-y-auto md:pl-300">
+    <div className="pt-15r fixed w-full h-full top-px left-px overflow-x-hidden overflow-y-auto md:pl-300">
       <Learn />
       <main className="shadow-double bg-white  mx-auto mt-32 relative max-w-550">
         <__Header send={send} count={state.context.todos.length} />

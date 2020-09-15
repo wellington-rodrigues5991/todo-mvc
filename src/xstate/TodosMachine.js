@@ -27,29 +27,33 @@ const TodoMachine = Machine({
         },
         edit: {
             invoke: {
-                src: (ctx, e) => server(gql`
-                mutation{
-                    changeTodo(text:"${e.text}", completed:${e.completed}, id:"${e.id}"){
-                        id
-                        text
-                        completed
-                    }
-                }
-            `),
+                src: (ctx, e) => {
+                    console.log(ctx, e)
+                    return server(gql`
+                        mutation{
+                            changeTodo(text:"${e.text}", completed:${e.completed}, id:"${e.id}"){
+                                id
+                                text
+                                completed
+                            }
+                        }
+                    `)
+                },
                 onDone: {
-                    target: 'reading',
                     actions: [
                         assign({
                             text : (a, b) => b.data.changeTodo.text,
                             completed : (a, b) => b.data.changeTodo.completed
                         }),
-                        sendParent(ctx => (console.log('commit'), { type: "UPDATE", todo: ctx }))
-                    ]
+                        sendParent(ctx => ({}, { type: "UPDATE", todo: ctx }))
+                    ],
+                    target: 'reading'
                 }
             }
         },
         delete: {
-            entry: sendParent((ctx, e) => ({}, { type: "DELETE", id: e.id }))
+            entry: sendParent((ctx, e) => ({}, { type: "DELETE", id: e.id })),
+            target: 'reading'
         }
     }
 });

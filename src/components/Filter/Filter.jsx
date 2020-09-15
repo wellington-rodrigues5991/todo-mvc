@@ -11,7 +11,7 @@ export default function Filter({path, todos, send}) {
   return (
     <section className="text-sm p-1015 relative text-gray-700 before:empty-content before:absolute before:w-full before:h-full before:overflow-hidden before:shadow-triple before:left-0 before:bottom-0">
       <span>{todos.todo} item{todos.todo != 1 ? 's' : ''} left</span>
-      <form className="text-center sm:absolute -top-1 left-0 right-0 h-full leading-10">
+      <form className="text-center absolute -top-1 left-0 right-0 h-full leading-10">
         <FilterOption path ='/' url={path.asPath} change={Change}>All</FilterOption>
         <FilterOption middle="true" path = '/active' url={path.asPath} change={Change}>Active</FilterOption>
         <FilterOption path = '/completed' url={path.asPath} change={Change}>Completed</FilterOption>
